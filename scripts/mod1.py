@@ -86,34 +86,34 @@ def main():
     while not rospy.is_shutdown():    
         time_delta = datetime.now() - start_time
         if time_delta.total_seconds() > 90:
-            	timeout_=True
+            timeout_=True
         
-		if abs(x-position_.x) <= threshold and abs(y-position_.y) <= threshold and not timeout_:
-		    os.system('clear')
-		    print("Target reached! Please insert the next position")
-		    x = float(input('x : '))
-		    y = float(input('y : '))
-		    rospy.set_param("des_pos_x", x)
-		    rospy.set_param("des_pos_y", y)
-		    print("Thanks! Let's make arrangements for some seconds, then reach x = " + str(x) + ", y = " + str(y))
-		    start_task()
-		    os.system('clear')
-		    print("Thanks! Let's make arrangements for some seconds, then reach x = " + str(x) + ", y = " + str(y))
-		    start_time = datetime.now()
+        if abs(x-position_.x) <= threshold and abs(y-position_.y) <= threshold and not timeout_:
+            os.system('clear')
+            print("Target reached! Please insert the next position")
+            x = float(input('x : '))
+            y = float(input('y : '))
+            rospy.set_param("des_pos_x", x)
+            rospy.set_param("des_pos_y", y)
+            print("Thanks! Let's make arrangements for some seconds, then reach x = " + str(x) + ", y = " + str(y))
+            start_task()
+            os.system('clear')
+            print("Thanks! Let's make arrangements for some seconds, then reach x = " + str(x) + ", y = " + str(y))
+            start_time = datetime.now()
 
-		elif timeout_:
-		    os.system('clear')
-		    print("Oh no! Timeout! Please insert another goal")
-		    x = float(input('x : '))
-		    y = float(input('y : '))
-		    rospy.set_param("des_pos_x", x)
-		    rospy.set_param("des_pos_y", y)
-		    print("Thanks! Let's make arrangements for some seconds, then reach x = " + str(x) + ", y = " + str(y))
-		    start_task()
-		    os.system('clear')
-		    print("Thanks! Let's make arrangements for some seconds, then reach x = " + str(x) + ", y = " + str(y))
-		    timeout_ = False
-		    start_time = datetime.now()
+        elif timeout_:
+            os.system('clear')
+            print("Oh no! Timeout! Please insert another goal")
+            x = float(input('x : '))
+            y = float(input('y : '))
+            rospy.set_param("des_pos_x", x)
+            rospy.set_param("des_pos_y", y)
+            print("Thanks! Let's make arrangements for some seconds, then reach x = " + str(x) + ", y = " + str(y))
+            start_task()
+            os.system('clear')
+            print("Thanks! Let's make arrangements for some seconds, then reach x = " + str(x) + ", y = " + str(y))
+            timeout_ = False
+            start_time = datetime.now()
 
         else:
             continue

@@ -12,18 +12,18 @@
   <param name="des_pos_x" value="$(arg des_x)" />
   <param name="des_pos_y" value="$(arg des_y)" />
 
-  <node pkg="rt2eb" type="mod1.py" name="mod1" output="screen"/>
+  <node pkg="rt2eb" type="mod1.py" name="mod1" output="screen" launch-prefix="xterm -e"/>
 
 </group>
 
 <group if="$(eval opt == 'mod2')">
   <!-- Teleopt- keyboard   https://answers.ros.org/question/231271/setting-argument-for-teleop-twist-keyboard-in-launch-file/-->
-  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen"/>
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen" launch-prefix="xterm -e"/>
 </group>
 
 <group if="$(eval opt == 'mod3')">
   <!-- Teleopt- keyboard with controller node/-->
-  <node pkg="rt2eb" type="mod3_teleop_twist_keyboard.py" name="mod3_teleop_twist_keyboard" output="screen"/>
+  <node pkg="rt2eb" type="mod3_teleop_twist_keyboard.py" name="mod3_teleop_twist_keyboard" output="screen" launch-prefix="xterm -e"/>
   <node pkg="rt2eb" type="mod3_controller.py" name="mod3_controller" />
 </group>
 
