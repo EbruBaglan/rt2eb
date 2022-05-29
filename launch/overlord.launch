@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launching launch files: https://answers.ros.org/question/9426/can-i-call-one-launch-file-from-another-launch-file/-->
+  <include file="$(find rt2eb)/launch/simulation_gmapping.launch" />
+  <include file="$(find rt2eb)/launch/move_base.launch" />
+
+<arg name="opt" default="mod2"/>
+
+<group if="$(eval opt == 'mod1')">
+  <arg name="des_x" default= "-5.0"/>
+  <arg name="des_y" default= "-5.0"/>
+  <param name="des_pos_x" value="$(arg des_x)" />
+  <param name="des_pos_y" value="$(arg des_y)" />
+
+  <node pkg="rt2eb" type="mod1.py" name="mod1" output="screen"/>
+
+</group>
+
+<group if="$(eval opt == 'mod2')">
+  <!-- Teleopt- keyboard   https://answers.ros.org/question/231271/setting-argument-for-teleop-twist-keyboard-in-launch-file/-->
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen"/>
+</group>
+
+<group if="$(eval opt == 'mod3')">
+  <!-- Teleopt- keyboard with controller node/-->
+  <node pkg="rt2eb" type="mod3_teleop_twist_keyboard.py" name="mod3_teleop_twist_keyboard" output="screen"/>
+  <node pkg="rt2eb" type="mod3_controller.py" name="mod3_controller" />
+</group>
+
+
+</launch>
