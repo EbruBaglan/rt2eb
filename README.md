@@ -50,6 +50,12 @@ Improvements
 4) rosclean command can be added if user has a huge size of .ros/log initially.
 
 
+
+Interesting things to note:
+if -.py files include rosparameter setting/getting, and if the roscore is not called, it raises an error of OSError: [Errno 99] Cannot assign requested address.
+Even after if the mentioned parameter is not set yet, it raises another error during make html command.
+
+
 Problems Faced and Solved
 ---------
 1) **Rviz not showing laser-scan outputs (red-lines):** It turns out Ubuntu may have some problems with GPU, and if the package has a GPU laser sensor, the output is not read. Some hero on the Internet commented this beautiful words: "You're getting messages, so it's definitely on. Please, try the non-GPU plugin (remove gpu_ everywhere in the sensor definition)." and "the root cause is an incompatibility with the graphics card/driver; what do you have? I also seem to remember having to upgrade to a newer version of Gazebo to get a GPU plugin working correctly, but that may have been specific to a different lidar model. In any case, the choice is yours whether to further pursue the GPU version of this plugin or settle for the CPU version."
