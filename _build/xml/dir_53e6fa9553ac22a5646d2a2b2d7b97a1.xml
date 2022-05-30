@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_53e6fa9553ac22a5646d2a2b2d7b97a1" kind="dir">
+    <compoundname>scripts</compoundname>
+    <innerfile refid="mod1_8py">mod1.py</innerfile>
+    <innerfile refid="mod1__send__goal_8py">mod1_send_goal.py</innerfile>
+    <innerfile refid="mod3__controller_8py">mod3_controller.py</innerfile>
+    <innerfile refid="mod3__teleop__twist__keyboard_8py">mod3_teleop_twist_keyboard.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="scripts/"/>
+  </compounddef>
+</doxygen>

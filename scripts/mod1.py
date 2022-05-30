@@ -30,14 +30,14 @@ Global position variable
 """
 
 def clbck(msg):
-"""
-This function assigns the position of the robot to a global variable.
+    """
+    This function assigns the position of the robot to a global variable.
 
-Args:
-	msg(Pose): the message received from /odom, robot position
-"""
-	global position_
-	position_ = msg.pose.pose.position
+    Args:
+    	msg(Pose): the message received from /odom, robot position
+    """
+    global position_
+    position_ = msg.pose.pose.position
 
 
 def start_task():

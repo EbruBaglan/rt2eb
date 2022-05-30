@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacemod3__controller" kind="namespace" language="Python">
+    <compoundname>mod3_controller</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemod3__controller_1a8b304e3f15bc582885a03b59c49f1547" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_controller.vel_</definition>
+        <argsstring></argsstring>
+        <name>vel_</name>
+        <initializer>=  Twist()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_controller.py" line="24" column="1" bodyfile="scripts/mod3_controller.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemod3__controller_1aaaa20b18258c19829619700154871712" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_controller.x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_controller.py" line="28" column="1" bodyfile="scripts/mod3_controller.py" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemod3__controller_1a0db0fe92b1bcca9a50b0ad55ead6d6ca" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_controller.z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_controller.py" line="29" column="1" bodyfile="scripts/mod3_controller.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemod3__controller_1ad53c1a11adf10a3d17ddf46654cd5d47" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_controller.pub</definition>
+        <argsstring></argsstring>
+        <name>pub</name>
+        <initializer>=  rospy.Publisher(&quot;/cmd_vel&quot;, Twist)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_controller.py" line="31" column="1" bodyfile="scripts/mod3_controller.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemod3__controller_1aed437ce6c1d853c589e7316c5b3f052f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod3_controller.take_action</definition>
+        <argsstring>(regions)</argsstring>
+        <name>take_action</name>
+        <param>
+          <type>regions</type>
+          <defname>regions</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>The function decides to whether keep the user velocity to the /cmd_vel or not. 5 region of the /scan readings are checked and if user wants to drive in the direction of a close obstacle, the velocity in that direction is set to zero. It is then sent to /cmd_vel.
+
+Args:
+    regions(dictionary): The parsed /scan readings to 5 regions. Every key has minimum of each region&apos;s closest obstacle distance as value.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_controller.py" line="36" column="1" bodyfile="scripts/mod3_controller.py" bodystart="36" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemod3__controller_1aff951f19e8f0f23c5bcd1c25a9245bec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod3_controller.clbck_laser</definition>
+        <argsstring>(msg)</argsstring>
+        <name>clbck_laser</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>The callback function for /scan readings. Parsed into 5 direction and assigned the minimum value of respective region. Then sent to take_action() function for further steps.
+
+Args:
+    msg(list): /scan readings
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_controller.py" line="86" column="1" bodyfile="scripts/mod3_controller.py" bodystart="86" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemod3__controller_1a6fbd792787de77b0b4c449637c871c98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod3_controller.clbck2</definition>
+        <argsstring>(msg)</argsstring>
+        <name>clbck2</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>The callback function for /cmd_vel_raw. Assigns the user command to global variable vel
+
+Args:
+    msg(Twist): User command for velocity.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_controller.py" line="102" column="1" bodyfile="scripts/mod3_controller.py" bodystart="102" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemod3__controller_1a05b1faae2a7ab8146bf4f5c731fef3f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod3_controller.controller</definition>
+        <argsstring>()</argsstring>
+        <name>controller</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>The main function to initiate node, subscrive to the topics and spin.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_controller.py" line="113" column="1" bodyfile="scripts/mod3_controller.py" bodystart="113" bodyend="122"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: mod3_controller
+   :platform: Unix
+   :synopsis: Python module for the controller of modality 3: assisted drive
+   
+.. moduleauthor:: Ebru Baglan baglanebru@gmail.com
+
+The node receives the user commands from mod3_teleop_twist_keyboard node by subscribing to the /cmd_vel_raw topic. Upon comparing this command with the obstacle distance received from /scan topic, if there is an obstacle in the desired direction, that velocity is set to zero to avoid collision. So the suicidal tendencies of the user is prevented and an expensive robot is saved, WIN-WIN! Then the modified velocity is sent to /cmd_vel.
+
+Subscribes to:
+    /cmd_vel_raw
+    /scan
+    
+Publishes to:
+    /cmd_vel
+</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/mod3_controller.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

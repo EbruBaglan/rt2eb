@@ -101,7 +101,7 @@ def clbck_laser(msg):
     
 def clbck2(msg):
     """
-    The callback function for /cmd_vel_raw. Assigns the user command to global variable vel_.
+    The callback function for /cmd_vel_raw. Assigns the user command to global variable vel
     
     Args:
     	msg(Twist): User command for velocity.

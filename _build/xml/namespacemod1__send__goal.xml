@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacemod1__send__goal" kind="namespace" language="Python">
+    <compoundname>mod1_send_goal</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemod1__send__goal_1af5285372be0dc15307f37106f8ee252e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod1_send_goal.desired_position_</definition>
+        <argsstring></argsstring>
+        <name>desired_position_</name>
+        <initializer>=  Point()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1_send_goal.py" line="23" column="1" bodyfile="scripts/mod1_send_goal.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemod1__send__goal_1ac7c7a719c35fc0903d27757ae9a42fde" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod1_send_goal.x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1_send_goal.py" line="24" column="1" bodyfile="scripts/mod1_send_goal.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemod1__send__goal_1a117651d6478169f0b1a4fd15f776c193" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod1_send_goal.y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1_send_goal.py" line="25" column="1" bodyfile="scripts/mod1_send_goal.py" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemod1__send__goal_1a9c37eb4f203dfa33dc8424302c78f5e5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod1_send_goal.move_msg</definition>
+        <argsstring></argsstring>
+        <name>move_msg</name>
+        <initializer>=  MoveBaseActionGoal()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1_send_goal.py" line="27" column="1" bodyfile="scripts/mod1_send_goal.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemod1__send__goal_1a3eeb87532b88379255a2020d0ca4e40c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod1_send_goal.frame_id</definition>
+        <argsstring></argsstring>
+        <name>frame_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1_send_goal.py" line="29" column="1" bodyfile="scripts/mod1_send_goal.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemod1__send__goal_1a74bf61652e07d70e2234e4b97d5d8752" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod1_send_goal.w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1_send_goal.py" line="30" column="1" bodyfile="scripts/mod1_send_goal.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemod1__send__goal_1a21cca653208a0634391a10f2df9ca0ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod1_send_goal.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function is the node that sends the desired coordinate to the move_base/goal topic. It does not prints out anything, only publishes to the mentioned topic. frame_id and orientation.w are important parameters which should not be forgotten to set.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1_send_goal.py" line="32" column="1" bodyfile="scripts/mod1_send_goal.py" bodystart="32" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: mod1_send_goal
+   :platform: Unix
+   :synopsis: Additional Python module necessary for the controller of modality 1: auto drive
+   
+.. moduleauthor:: Ebru Baglan baglanebru@gmail.com
+
+The script is run upon mod1.py is initiated. Due to the problems faced, user interface and actual sending goal part of the mod1 are seperated like this. Upon receiving desired location to reach from parameter server, this node sends the coordinates to move_base/goal topic
+
+Subscribes to:
+    (parameter server) des_pos_x, des_pos_y
+    
+Publishes to:
+    move_base/goal
+</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/mod1_send_goal.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

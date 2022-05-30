@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="mod3__controller_8py" kind="file" language="Python">
+    <compoundname>mod3_controller.py</compoundname>
+    <innernamespace refid="namespacemod3__controller">mod3_controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemod3__controller" refkind="compound"><highlight class="comment">#!/usr/bin/env<sp/>python</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral">..<sp/>module::<sp/>mod3_controller</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"><sp/><sp/><sp/>:platform:<sp/>Unix</highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral"><sp/><sp/><sp/>:synopsis:<sp/>Python<sp/>module<sp/>for<sp/>the<sp/>controller<sp/>of<sp/>modality<sp/>3:<sp/>assisted<sp/>drive</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral">..<sp/>moduleauthor::<sp/>Ebru<sp/>Baglan<sp/>baglanebru@gmail.com</highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral">The<sp/>node<sp/>receives<sp/>the<sp/>user<sp/>commands<sp/>from<sp/>mod3_teleop_twist_keyboard<sp/>node<sp/>by<sp/>subscribing<sp/>to<sp/>the<sp/>/cmd_vel_raw<sp/>topic.<sp/>Upon<sp/>comparing<sp/>this<sp/>command<sp/>with<sp/>the<sp/>obstacle<sp/>distance<sp/>received<sp/>from<sp/>/scan<sp/>topic,<sp/>if<sp/>there<sp/>is<sp/>an<sp/>obstacle<sp/>in<sp/>the<sp/>desired<sp/>direction,<sp/>that<sp/>velocity<sp/>is<sp/>set<sp/>to<sp/>zero<sp/>to<sp/>avoid<sp/>collision.<sp/>So<sp/>the<sp/>suicidal<sp/>tendencies<sp/>of<sp/>the<sp/>user<sp/>is<sp/>prevented<sp/>and<sp/>an<sp/>expensive<sp/>robot<sp/>is<sp/>saved,<sp/>WIN-WIN!<sp/>Then<sp/>the<sp/>modified<sp/>velocity<sp/>is<sp/>sent<sp/>to<sp/>/cmd_vel.</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral">Subscribes<sp/>to:</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>/cmd_vel_raw</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>/scan</highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral">Publishes<sp/>to:</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>/cmd_vel</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>geometry_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Twist</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>sensor_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>LaserScan</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">vel_<sp/>=<sp/>Twist()</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral">Global<sp/>Twist<sp/>variable<sp/>for<sp/>robot<sp/>velocity</highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">vel_.linear.x<sp/>=<sp/>0.0</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">vel_.angular.z<sp/>=<sp/>0.0<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">pub<sp/>=<sp/>rospy.Publisher(</highlight><highlight class="stringliteral">&quot;/cmd_vel&quot;</highlight><highlight class="normal">,<sp/>Twist)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral">Global<sp/>publisher</highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemod3__controller_1aed437ce6c1d853c589e7316c5b3f052f" kindref="member">take_action</ref>(regions):</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="38"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>The<sp/>function<sp/>decides<sp/>to<sp/>whether<sp/>keep<sp/>the<sp/>user<sp/>velocity<sp/>to<sp/>the<sp/>/cmd_vel<sp/>or<sp/>not.<sp/>5<sp/>region<sp/>of<sp/>the<sp/>/scan<sp/>readings<sp/>are<sp/>checked<sp/>and<sp/>if<sp/>user<sp/>wants<sp/>to<sp/>drive<sp/>in<sp/>the<sp/>direction<sp/>of<sp/>a<sp/>close<sp/>obstacle,<sp/>the<sp/>velocity<sp/>in<sp/>that<sp/>direction<sp/>is<sp/>set<sp/>to<sp/>zero.<sp/>It<sp/>is<sp/>then<sp/>sent<sp/>to<sp/>/cmd_vel.</highlight></codeline>
+<codeline lineno="39"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="41"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>regions(dictionary):<sp/>The<sp/>parsed<sp/>/scan<sp/>readings<sp/>to<sp/>5<sp/>regions.<sp/>Every<sp/>key<sp/>has<sp/>minimum<sp/>of<sp/>each<sp/>region&apos;s<sp/>closest<sp/>obstacle<sp/>distance<sp/>as<sp/>value.</highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>msg<sp/>=<sp/>Twist()</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>linear_x<sp/>=<sp/>vel_.linear.x</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>angular_z<sp/>=<sp/>vel_.angular.z</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>state_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;front&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fleft&apos;</highlight><highlight class="normal">]<sp/>&gt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fright&apos;</highlight><highlight class="normal">]<sp/>&gt;<sp/>1:</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;case<sp/>2<sp/>-<sp/>front&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>linear_x<sp/>&gt;<sp/>0:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linear_x<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;front&apos;</highlight><highlight class="normal">]<sp/>&gt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fleft&apos;</highlight><highlight class="normal">]<sp/>&gt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fright&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1:</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;case<sp/>3<sp/>-<sp/>fright&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>angular_z<sp/>&lt;<sp/>0:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>angular_z<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;front&apos;</highlight><highlight class="normal">]<sp/>&gt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fleft&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fright&apos;</highlight><highlight class="normal">]<sp/>&gt;<sp/>1:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;case<sp/>4<sp/>-<sp/>fleft&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>angular_z<sp/>&gt;<sp/>0:</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>angular_z<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;front&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fleft&apos;</highlight><highlight class="normal">]<sp/>&gt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fright&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1:</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;case<sp/>5<sp/>-<sp/>front<sp/>and<sp/>fright&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>linear_x<sp/>&gt;<sp/>0<sp/></highlight><highlight class="keywordflow">or</highlight><highlight class="normal"><sp/>angular_z<sp/>&lt;<sp/>0:</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linear_x<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>angular_z<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;front&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fleft&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fright&apos;</highlight><highlight class="normal">]<sp/>&gt;<sp/>1:</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;case<sp/>6<sp/>-<sp/>front<sp/>and<sp/>fleft&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>linear_x<sp/>&gt;<sp/>0<sp/></highlight><highlight class="keywordflow">or</highlight><highlight class="normal"><sp/>angular_z<sp/>&gt;<sp/>0:</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linear_x<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>angular_z<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;front&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fleft&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fright&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;case<sp/>7<sp/>-<sp/>front<sp/>and<sp/>fleft<sp/>and<sp/>fright&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>linear_x<sp/>&gt;<sp/>0:</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linear_x<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;front&apos;</highlight><highlight class="normal">]<sp/>&gt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fleft&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>regions[</highlight><highlight class="stringliteral">&apos;fright&apos;</highlight><highlight class="normal">]<sp/>&lt;<sp/>1:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;case<sp/>8<sp/>-<sp/>fleft<sp/>and<sp/>fright&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>angular_z<sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>angular_z<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;unknown<sp/>case&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>msg.linear.x<sp/>=<sp/>linear_x</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>msg.angular.z<sp/>=<sp/>angular_z</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>pub.publish(msg)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemod3__controller_1aff951f19e8f0f23c5bcd1c25a9245bec" kindref="member">clbck_laser</ref>(msg):</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>The<sp/>callback<sp/>function<sp/>for<sp/>/scan<sp/>readings.<sp/>Parsed<sp/>into<sp/>5<sp/>direction<sp/>and<sp/>assigned<sp/>the<sp/>minimum<sp/>value<sp/>of<sp/>respective<sp/>region.<sp/>Then<sp/>sent<sp/>to<sp/>take_action()<sp/>function<sp/>for<sp/>further<sp/>steps.</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg(list):<sp/>/scan<sp/>readings</highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>regions<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&apos;right&apos;</highlight><highlight class="normal">:<sp/><sp/>min(min(msg.ranges[0:143]),<sp/>10),</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&apos;fright&apos;</highlight><highlight class="normal">:<sp/>min(min(msg.ranges[144:287]),<sp/>10),</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&apos;front&apos;</highlight><highlight class="normal">:<sp/><sp/>min(min(msg.ranges[288:431]),<sp/>10),</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&apos;fleft&apos;</highlight><highlight class="normal">:<sp/><sp/>min(min(msg.ranges[432:575]),<sp/>10),</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&apos;left&apos;</highlight><highlight class="normal">:<sp/><sp/><sp/>min(min(msg.ranges[576:719]),<sp/>10),</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacemod3__controller_1aed437ce6c1d853c589e7316c5b3f052f" kindref="member">take_action</ref>(regions)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemod3__controller_1a6fbd792787de77b0b4c449637c871c98" kindref="member">clbck2</ref>(msg):</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="104"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>The<sp/>callback<sp/>function<sp/>for<sp/>/cmd_vel_raw.<sp/>Assigns<sp/>the<sp/>user<sp/>command<sp/>to<sp/>global<sp/>variable<sp/>vel</highlight></codeline>
+<codeline lineno="105"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="106"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="107"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg(Twist):<sp/>User<sp/>command<sp/>for<sp/>velocity.</highlight></codeline>
+<codeline lineno="108"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>vel_</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>vel_<sp/>=<sp/>msg</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemod3__controller_1a05b1faae2a7ab8146bf4f5c731fef3f2" kindref="member">controller</ref>():</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="115"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>The<sp/>main<sp/>function<sp/>to<sp/>initiate<sp/>node,<sp/>subscrive<sp/>to<sp/>the<sp/>topics<sp/>and<sp/>spin.</highlight></codeline>
+<codeline lineno="116"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(</highlight><highlight class="stringliteral">&quot;mod3_controller&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.Subscriber(</highlight><highlight class="stringliteral">&apos;/scan&apos;</highlight><highlight class="normal">,<sp/>LaserScan,<sp/>clbck_laser)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.Subscriber(</highlight><highlight class="stringliteral">&apos;/cmd_vel_raw&apos;</highlight><highlight class="normal">,<sp/>Twist,<sp/>clbck2)<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.spin()</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacemod3__controller_1a05b1faae2a7ab8146bf4f5c731fef3f2" kindref="member">controller</ref>()</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">except</highlight><highlight class="normal"><sp/>rospy.ROSInterruptException:</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">pass</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="scripts/mod3_controller.py"/>
+  </compounddef>
+</doxygen>

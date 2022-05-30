@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">Research<sp/>Track<sp/>2<sp/>-<sp/>Assignment<sp/>1<sp/>-<sp/>Solution</highlight></codeline>
+<codeline><highlight class="normal">================================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>this<sp/>assignment<sp/>of<sp/>the<sp/>Research<sp/>Track<sp/>2,<sp/>previously<sp/>implemented<sp/>solution<sp/>for<sp/>Assignment<sp/>3<sp/>of<sp/>Research<sp/>Trach<sp/>1<sp/>is<sp/>reimplemented<sp/>to<sp/>give<sp/>user<sp/>a<sp/>Jupyter<sp/>Notebook<sp/>interface.<sp/>Interactive<sp/>elements<sp/>like<sp/>buttons,<sp/>boxes<sp/>are<sp/>presented<sp/>for<sp/>the<sp/>user<sp/>to<sp/>choose<sp/>among<sp/>3<sp/>different<sp/>modalities<sp/>of<sp/>the<sp/>robot&apos;s<sp/>movement.<sp/>The<sp/>interface<sp/>should<sp/>be<sp/>able<sp/>to<sp/>get<sp/>the<sp/>user<sp/>request<sp/>for<sp/>modality,<sp/>get<sp/>additional<sp/>input<sp/>from<sp/>user<sp/>depending<sp/>on<sp/>the<sp/>modality<sp/>of<sp/>choice<sp/>and<sp/>let<sp/>the<sp/>robot<sp/>execute<sp/>one<sp/>of<sp/>the<sp/>following<sp/>behaviors:</highlight></codeline>
+<codeline><highlight class="normal">1)<sp/>autonomously<sp/>reach<sp/>a<sp/>x,y<sp/>coordinate<sp/>inserted<sp/>by<sp/>the<sp/>user</highlight></codeline>
+<codeline><highlight class="normal">2)<sp/>let<sp/>the<sp/>user<sp/>drive<sp/>the<sp/>robot<sp/>with<sp/>the<sp/>keyboard</highlight></codeline>
+<codeline><highlight class="normal">3)<sp/>let<sp/>the<sp/>user<sp/>drive<sp/>the<sp/>robot<sp/>assisting<sp/>them<sp/>to<sp/>avoid<sp/>collisions.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">After<sp/>the<sp/>initialization<sp/>of<sp/>the<sp/>robot,<sp/>the<sp/>output<sp/>of<sp/>the<sp/>laser<sp/>readings<sp/>are<sp/>shown<sp/>to<sp/>user<sp/>through<sp/>Jupyter<sp/>Notebook.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Installing<sp/>and<sp/>running</highlight></codeline>
+<codeline><highlight class="normal">----------------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">After<sp/>you<sp/>download<sp/>the<sp/>workspace<sp/>for<sp/>the<sp/>following<sp/>desired<sp/>mods,<sp/>just<sp/>hit,</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Mod1:<sp/>autonomously<sp/>reach<sp/>a<sp/>x,y<sp/>coordinate<sp/>inserted<sp/>by<sp/>the<sp/>user</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">$<sp/>roslaunch<sp/>final_assignment<sp/>overlord.launch<sp/>opt:=mod1<sp/>des_x:=-5.0<sp/>des_y:=5.0</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Mod2:<sp/>let<sp/>the<sp/>user<sp/>drive<sp/>the<sp/>robot<sp/>with<sp/>the<sp/>keyboard</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">$<sp/>roslaunch<sp/>final_assignment<sp/>overlord.launch<sp/>opt:=mod2</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Mod3:<sp/>let<sp/>the<sp/>user<sp/>drive<sp/>the<sp/>robot<sp/>assisting<sp/>them<sp/>to<sp/>avoid<sp/>collisions.</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">$<sp/>roslaunch<sp/>final_assignment<sp/>overlord.launch<sp/>opt:=mod3</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Structure<sp/>and<sp/>How<sp/>it<sp/>works</highlight></codeline>
+<codeline><highlight class="normal">---------</highlight></codeline>
+<codeline><highlight class="normal">Roslaunch<sp/>file<sp/>gets<sp/>user<sp/>input<sp/>mod<sp/>and<sp/>starts<sp/>the<sp/>needed<sp/>nodes<sp/>for<sp/>the<sp/>desired<sp/>mod.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Mod1<sp/>starts<sp/>an<sp/>initializer<sp/>node,<sp/>which<sp/>then<sp/>calls<sp/>for<sp/>another<sp/>node<sp/>through<sp/>roslaunch<sp/>to<sp/>send<sp/>user<sp/>input<sp/>goals<sp/>to<sp/>move_base/goal<sp/>topic.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Mod2<sp/>calls<sp/>for<sp/>teleopt_twist_keyboard<sp/>to<sp/>take<sp/>user<sp/>direction<sp/>inputs.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Mod3<sp/>calls<sp/>for<sp/>a<sp/>modified<sp/>version<sp/>teleopt_twist_keyboard(to<sp/>publish<sp/>on<sp/>/cmd_vel_**raw**)<sp/>to<sp/>take<sp/>user<sp/>direction<sp/>inputs,<sp/>and<sp/>calls<sp/>another<sp/>node<sp/>to<sp/>manipulate<sp/>user<sp/>inputs<sp/>when<sp/>user<sp/>feels<sp/>like<sp/>crashing<sp/>into<sp/>a<sp/>wall.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Flowchart</highlight></codeline>
+<codeline><highlight class="normal">---------</highlight></codeline>
+<codeline><highlight class="normal">![flowchart6](https://user-images.githubusercontent.com/71343894/154901294-0254529a-75bb-448d-a042-693fac1bd328.png)</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Improvements</highlight></codeline>
+<codeline><highlight class="normal">---------</highlight></codeline>
+<codeline><highlight class="normal">1)<sp/>Cancelling<sp/>a<sp/>goal<sp/>mid-time<sp/>can<sp/>be<sp/>added.<sp/></highlight></codeline>
+<codeline><highlight class="normal">3)<sp/>An<sp/>option<sp/>to<sp/>exit<sp/>a<sp/>node<sp/>anytime<sp/>can<sp/>be<sp/>added.</highlight></codeline>
+<codeline><highlight class="normal">4)<sp/>rosclean<sp/>command<sp/>can<sp/>be<sp/>added<sp/>if<sp/>user<sp/>has<sp/>a<sp/>huge<sp/>size<sp/>of<sp/>.ros/log<sp/>initially.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Interesting<sp/>things<sp/>to<sp/>note:</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>-.py<sp/>files<sp/>include<sp/>rosparameter<sp/>setting/getting,<sp/>and<sp/>if<sp/>the<sp/>roscore<sp/>is<sp/>not<sp/>called,<sp/>it<sp/>raises<sp/>an<sp/>error<sp/>of<sp/>OSError:<sp/>[Errno<sp/>99]<sp/>Cannot<sp/>assign<sp/>requested<sp/>address.</highlight></codeline>
+<codeline><highlight class="normal">Even<sp/>after<sp/>if<sp/>the<sp/>mentioned<sp/>parameter<sp/>is<sp/>not<sp/>set<sp/>yet,<sp/>it<sp/>raises<sp/>another<sp/>error<sp/>during<sp/>make<sp/>html<sp/>command.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Problems<sp/>Faced<sp/>and<sp/>Solved</highlight></codeline>
+<codeline><highlight class="normal">---------</highlight></codeline>
+<codeline><highlight class="normal">1)<sp/>**Rviz<sp/>not<sp/>showing<sp/>laser-scan<sp/>outputs<sp/>(red-lines):**<sp/>It<sp/>turns<sp/>out<sp/>Ubuntu<sp/>may<sp/>have<sp/>some<sp/>problems<sp/>with<sp/>GPU,<sp/>and<sp/>if<sp/>the<sp/>package<sp/>has<sp/>a<sp/>GPU<sp/>laser<sp/>sensor,<sp/>the<sp/>output<sp/>is<sp/>not<sp/>read.<sp/>Some<sp/>hero<sp/>on<sp/>the<sp/>Internet<sp/>commented<sp/>this<sp/>beautiful<sp/>words:<sp/>&quot;You&apos;re<sp/>getting<sp/>messages,<sp/>so<sp/>it&apos;s<sp/>definitely<sp/>on.<sp/>Please,<sp/>try<sp/>the<sp/>non-GPU<sp/>plugin<sp/>(remove<sp/>gpu_<sp/>everywhere<sp/>in<sp/>the<sp/>sensor<sp/>definition).&quot;<sp/>and<sp/>&quot;the<sp/>root<sp/>cause<sp/>is<sp/>an<sp/>incompatibility<sp/>with<sp/>the<sp/>graphics<sp/>card/driver;<sp/>what<sp/>do<sp/>you<sp/>have?<sp/>I<sp/>also<sp/>seem<sp/>to<sp/>remember<sp/>having<sp/>to<sp/>upgrade<sp/>to<sp/>a<sp/>newer<sp/>version<sp/>of<sp/>Gazebo<sp/>to<sp/>get<sp/>a<sp/>GPU<sp/>plugin<sp/>working<sp/>correctly,<sp/>but<sp/>that<sp/>may<sp/>have<sp/>been<sp/>specific<sp/>to<sp/>a<sp/>different<sp/>lidar<sp/>model.<sp/>In<sp/>any<sp/>case,<sp/>the<sp/>choice<sp/>is<sp/>yours<sp/>whether<sp/>to<sp/>further<sp/>pursue<sp/>the<sp/>GPU<sp/>version<sp/>of<sp/>this<sp/>plugin<sp/>or<sp/>settle<sp/>for<sp/>the<sp/>CPU<sp/>version.&quot;</highlight></codeline>
+<codeline><highlight class="normal">Full<sp/>post<sp/>is<sp/>here:<sp/>https://answers.ros.org/question/370627/cant-see-scan-in-rviz/</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2)<sp/>**Rviz<sp/>not<sp/>showing<sp/>map<sp/>(no<sp/>map<sp/>received<sp/>error):**<sp/>This<sp/>answer<sp/>directed<sp/>me<sp/>towards<sp/>the<sp/>idea<sp/>that<sp/>&quot;I<sp/>should<sp/>run<sp/>map_server&quot;:<sp/>https://get-help.robotigniteacademy.com/t/rviz-no-map-received/4721.<sp/>Then,<sp/>I<sp/>went<sp/>here:<sp/>http://wiki.ros.org/map_server,<sp/>which<sp/>directed<sp/>me<sp/>downloading<sp/>the<sp/>&apos;navigation.git&apos;<sp/>in<sp/>here:<sp/>https://github.com/ros-planning/navigation<sp/>.<sp/>After<sp/>catkin_make,<sp/>I<sp/>received<sp/>the<sp/>following<sp/>error</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">Could<sp/>not<sp/>find<sp/>a<sp/>package<sp/>configuration<sp/>file<sp/>provided<sp/>by<sp/>&quot;tf2_sensor_msgs&quot;<sp/>with<sp/>any<sp/>of<sp/>the<sp/>following<sp/>names:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>tf2_sensor_msgsConfig.cmake</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>tf2_sensor_msgs-config.cmake</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Then<sp/>I<sp/>moved<sp/>on<sp/>to<sp/>this<sp/>answer:<sp/>https://answers.ros.org/question/305640/cmake-warning-has-occurred/<sp/>,<sp/>which<sp/>made<sp/>me<sp/>think<sp/>that<sp/>I<sp/>am<sp/>lacking<sp/>tf2_sensor_msgs,<sp/>and<sp/>I<sp/>should<sp/>get<sp/>it<sp/>using</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">$<sp/>sudo<sp/>apt-get<sp/>install<sp/>ros-noetic-tf2-sensor-msgs</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Indeed,<sp/>after<sp/>installing<sp/>that,<sp/>the<sp/>problem<sp/>is<sp/>solved.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">3)<sp/>**Constant<sp/>spamming<sp/>on<sp/>the<sp/>terminal<sp/>by<sp/>&apos;Warning:<sp/>TF_REPEATED_DATA<sp/>ignoring<sp/>data<sp/>with<sp/>redundant<sp/>timestamp...&apos;:**<sp/>This<sp/>turns<sp/>out<sp/>to<sp/>be<sp/>an<sp/>up-to-date<sp/>issue<sp/>with<sp/>the<sp/>ticket<sp/>created<sp/>on<sp/>here:<sp/>https://github.com/ros/geometry2/issues/467</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">4)<sp/>**the<sp/>rosdep<sp/>view<sp/>is<sp/>empty:**<sp/>call<sp/>&apos;sudo<sp/>rosdep<sp/>init&apos;<sp/>and<sp/>&apos;rosdep<sp/>update&apos;</highlight></codeline>
+<codeline><highlight class="normal">5)<sp/>**Step<sp/>4<sp/>caused<sp/>missing<sp/>packages,<sp/>and<sp/>I<sp/>had<sp/>to<sp/>start<sp/>ROS<sp/>directory<sp/>all<sp/>over:**<sp/>https://answers.ros.org/question/353082/missing-packages-after-installing-rosdep-based-on-python3-rosdep2-in-noetic/</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

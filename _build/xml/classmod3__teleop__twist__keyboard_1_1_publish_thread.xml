@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classmod3__teleop__twist__keyboard_1_1_publish_thread" kind="class" language="Python" prot="public">
+    <compoundname>mod3_teleop_twist_keyboard::PublishThread</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Thread</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a2e9280cc995a7033e8e450a4c05f51c5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::publisher</definition>
+        <argsstring></argsstring>
+        <name>publisher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="85" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a10de1520b9d8d20f5f395c6cabe24a82" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="86" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a95889837948826395bc795f98e42dd95" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="87" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a61bc1170bce7647dfeb1c43aabc27101" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="88" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1aa899e0a9defecf1c7386d9da287a7635" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::th</definition>
+        <argsstring></argsstring>
+        <name>th</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="89" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a7e8837ceba0006d9d2726e52cd00d746" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="90" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1aaf6ebd0ce5d44af3c939f5059b4aa6ac" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::turn</definition>
+        <argsstring></argsstring>
+        <name>turn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="91" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1abf69e344a56bc81f24f6effa55c5f37c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::condition</definition>
+        <argsstring></argsstring>
+        <name>condition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="92" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1acb36752d17ab24788700b968a7eb38ec" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::done</definition>
+        <argsstring></argsstring>
+        <name>done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="93" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1afff16f425557543abcc1f76c9ae974e2" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod3_teleop_twist_keyboard.PublishThread::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="96" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a55df5fb31153ac12a655dd4cc129bdf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod3_teleop_twist_keyboard.PublishThread.__init__</definition>
+        <argsstring>(self, rate)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>rate</type>
+          <defname>rate</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="83" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="83" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1ab38235eb9878f29237f1307e9c31ab4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod3_teleop_twist_keyboard.PublishThread.wait_for_subscribers</definition>
+        <argsstring>(self)</argsstring>
+        <name>wait_for_subscribers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="102" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="102" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a0fd55541f3b1f09ab0206d8587b7c362" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod3_teleop_twist_keyboard.PublishThread.update</definition>
+        <argsstring>(self, x, y, z, th, speed, turn)</argsstring>
+        <name>update</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>x</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>y</type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>z</type>
+          <defname>z</defname>
+        </param>
+        <param>
+          <type>th</type>
+          <defname>th</defname>
+        </param>
+        <param>
+          <type>speed</type>
+          <defname>speed</defname>
+        </param>
+        <param>
+          <type>turn</type>
+          <defname>turn</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="113" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="113" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a2561b4e3d6ff7bf5a995a04b6013412d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod3_teleop_twist_keyboard.PublishThread.stop</definition>
+        <argsstring>(self)</argsstring>
+        <name>stop</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="124" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="124" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classmod3__teleop__twist__keyboard_1_1_publish_thread_1ac8c3b888657ac28c44d2ee56edf748ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod3_teleop_twist_keyboard.PublishThread.run</definition>
+        <argsstring>(self)</argsstring>
+        <name>run</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod3_teleop_twist_keyboard.py" line="129" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="129" bodyend="154"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>threading::Thread</label>
+      </node>
+      <node id="1">
+        <label>mod3_teleop_twist_keyboard.PublishThread</label>
+        <link refid="classmod3__teleop__twist__keyboard_1_1_publish_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>threading::Thread</label>
+      </node>
+      <node id="1">
+        <label>mod3_teleop_twist_keyboard.PublishThread</label>
+        <link refid="classmod3__teleop__twist__keyboard_1_1_publish_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="scripts/mod3_teleop_twist_keyboard.py" line="82" column="1" bodyfile="scripts/mod3_teleop_twist_keyboard.py" bodystart="82" bodyend="155"/>
+    <listofallmembers>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a55df5fb31153ac12a655dd4cc129bdf7" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>__init__</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1abf69e344a56bc81f24f6effa55c5f37c" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>condition</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1acb36752d17ab24788700b968a7eb38ec" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>done</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a2e9280cc995a7033e8e450a4c05f51c5" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>publisher</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1ac8c3b888657ac28c44d2ee56edf748ca" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>run</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a7e8837ceba0006d9d2726e52cd00d746" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>speed</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a2561b4e3d6ff7bf5a995a04b6013412d" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>stop</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1aa899e0a9defecf1c7386d9da287a7635" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>th</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1afff16f425557543abcc1f76c9ae974e2" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>timeout</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1aaf6ebd0ce5d44af3c939f5059b4aa6ac" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>turn</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a0fd55541f3b1f09ab0206d8587b7c362" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>update</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1ab38235eb9878f29237f1307e9c31ab4c" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>wait_for_subscribers</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a10de1520b9d8d20f5f395c6cabe24a82" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>x</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a95889837948826395bc795f98e42dd95" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>y</name></member>
+      <member refid="classmod3__teleop__twist__keyboard_1_1_publish_thread_1a61bc1170bce7647dfeb1c43aabc27101" prot="public" virt="non-virtual"><scope>mod3_teleop_twist_keyboard::PublishThread</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

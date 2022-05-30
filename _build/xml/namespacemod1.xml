@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacemod1" kind="namespace" language="Python">
+    <compoundname>mod1</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemod1_1ab051c94f520314ea1fe8a5dd0fb11cb0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mod1.position_</definition>
+        <argsstring></argsstring>
+        <name>position_</name>
+        <initializer>=  Point()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1.py" line="27" column="1" bodyfile="scripts/mod1.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemod1_1a8840fa36f063d0c617d4077451157ece" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod1.clbck</definition>
+        <argsstring>(msg)</argsstring>
+        <name>clbck</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function assigns the position of the robot to a global variable.
+
+Args:
+    msg(Pose): the message received from /odom, robot position
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1.py" line="32" column="1" bodyfile="scripts/mod1.py" bodystart="32" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemod1_1af835f24a94031a9e41940d1dc4d9b2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod1.start_task</definition>
+        <argsstring>()</argsstring>
+        <name>start_task</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function launches the another node to send user-entered goal to the ROS topic. 
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1.py" line="43" column="1" bodyfile="scripts/mod1.py" bodystart="43" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemod1_1a2d2b392278a364599d66aee348b2ebc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mod1.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>The main function receives the (x,y) coordinate that user wants to reach, and initiates another node to reach to the target unless timeout.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/mod1.py" line="59" column="1" bodyfile="scripts/mod1.py" bodystart="59" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: mod1
+   :platform: Unix
+   :synopsis: Python module for the controller of modality 1: auto drive
+   
+.. moduleauthor:: Ebru Baglan baglanebru@gmail.com
+
+This node takes user input for the desired coordinates, communicates the results and account for the timeout. Due to a problem faced during the implementation of the code, the goal entered by user cannot be sent directly to the MoveAction, but rather is sent to another node to do the job. This trasmission to another node is made through the parameter server. It should be noted that, however, parameter server should be used for exhanging static data only. 
+
+Subscribes to:
+    /odom
+    
+Publishes to:
+    (parameter server) des_pos_x, des_pos_y
+</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/mod1.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

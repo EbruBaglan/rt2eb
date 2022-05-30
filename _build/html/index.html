@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to rt2eb’s documentation! &mdash; rt2eb 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> rt2eb
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to rt2eb’s documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#module-scripts.mod1">mod1 Module</a></li>
+<li><a class="reference internal" href="#module-scripts.mod1_send_goal">mod1_send_goal Module</a></li>
+<li><a class="reference internal" href="#module-scripts.mod3_controller">mod3_controller Module</a></li>
+<li><a class="reference internal" href="#module-scripts.mod3_teleop_twist_keyboard">mod3_teleop_twist_keyboard Module</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">rt2eb</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Welcome to rt2eb’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="welcome-to-rt2eb-s-documentation">
+<h1>Welcome to rt2eb’s documentation!<a class="headerlink" href="#welcome-to-rt2eb-s-documentation" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="module-scripts.mod1">
+<span id="mod1-module"></span><h1>mod1 Module<a class="headerlink" href="#module-scripts.mod1" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-mod1"></span><p>This node takes user input for the desired coordinates, communicates the results and account for the timeout. Due to a problem faced during the implementation of the code, the goal entered by user cannot be sent directly to the MoveAction, but rather is sent to another node to do the job. This trasmission to another node is made through the parameter server. It should be noted that, however, parameter server should be used for exhanging static data only.</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><p>/odom</p>
+</dd>
+<dt>Publishes to:</dt><dd><p>(parameter server) des_pos_x, des_pos_y</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mod1.clbck">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod1.</span></span><span class="sig-name descname"><span class="pre">clbck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod1.html#clbck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod1.clbck" title="Permalink to this definition"></a></dt>
+<dd><p>This function assigns the position of the robot to a global variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>Pose</em>) – the message received from /odom, robot position</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mod1.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod1.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod1.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod1.main" title="Permalink to this definition"></a></dt>
+<dd><p>The main function receives the (x,y) coordinate that user wants to reach, and initiates another node to reach to the target unless timeout.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="scripts.mod1.position_">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod1.</span></span><span class="sig-name descname"><span class="pre">position_</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">x:</span> <span class="pre">0.0</span> <span class="pre">y:</span> <span class="pre">0.0</span> <span class="pre">z:</span> <span class="pre">0.0</span></em><a class="headerlink" href="#scripts.mod1.position_" title="Permalink to this definition"></a></dt>
+<dd><p>Global position variable</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mod1.start_task">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod1.</span></span><span class="sig-name descname"><span class="pre">start_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod1.html#start_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod1.start_task" title="Permalink to this definition"></a></dt>
+<dd><p>This function launches the another node to send user-entered goal to the ROS topic.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-scripts.mod1_send_goal">
+<span id="mod1-send-goal-module"></span><h1>mod1_send_goal Module<a class="headerlink" href="#module-scripts.mod1_send_goal" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-mod1_send_goal"></span><p>The script is run upon mod1.py is initiated. Due to the problems faced, user interface and actual sending goal part of the mod1 are seperated like this. Upon receiving desired location to reach from parameter server, this node sends the coordinates to move_base/goal topic</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><p>(parameter server) des_pos_x, des_pos_y</p>
+</dd>
+<dt>Publishes to:</dt><dd><p>move_base/goal</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mod1_send_goal.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod1_send_goal.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod1_send_goal.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod1_send_goal.main" title="Permalink to this definition"></a></dt>
+<dd><p>This function is the node that sends the desired coordinate to the move_base/goal topic. It does not prints out anything, only publishes to the mentioned topic. frame_id and orientation.w are important parameters which should not be forgotten to set.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-scripts.mod3_controller">
+<span id="mod3-controller-module"></span><h1>mod3_controller Module<a class="headerlink" href="#module-scripts.mod3_controller" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-mod3_controller"></span><p>The node receives the user commands from mod3_teleop_twist_keyboard node by subscribing to the /cmd_vel_raw topic. Upon comparing this command with the obstacle distance received from /scan topic, if there is an obstacle in the desired direction, that velocity is set to zero to avoid collision. So the suicidal tendencies of the user is prevented and an expensive robot is saved, WIN-WIN! Then the modified velocity is sent to /cmd_vel.</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><p>/cmd_vel_raw
+/scan</p>
+</dd>
+<dt>Publishes to:</dt><dd><p>/cmd_vel</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mod3_controller.clbck2">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod3_controller.</span></span><span class="sig-name descname"><span class="pre">clbck2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod3_controller.html#clbck2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod3_controller.clbck2" title="Permalink to this definition"></a></dt>
+<dd><p>The callback function for /cmd_vel_raw. Assigns the user command to global variable vel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>Twist</em>) – User command for velocity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mod3_controller.clbck_laser">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod3_controller.</span></span><span class="sig-name descname"><span class="pre">clbck_laser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod3_controller.html#clbck_laser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod3_controller.clbck_laser" title="Permalink to this definition"></a></dt>
+<dd><p>The callback function for /scan readings. Parsed into 5 direction and assigned the minimum value of respective region. Then sent to take_action() function for further steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>msg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – /scan readings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mod3_controller.controller">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod3_controller.</span></span><span class="sig-name descname"><span class="pre">controller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod3_controller.html#controller"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod3_controller.controller" title="Permalink to this definition"></a></dt>
+<dd><p>The main function to initiate node, subscrive to the topics and spin.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="scripts.mod3_controller.pub">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod3_controller.</span></span><span class="sig-name descname"><span class="pre">pub</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;rospy.topics.Publisher</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#scripts.mod3_controller.pub" title="Permalink to this definition"></a></dt>
+<dd><p>Global publisher</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mod3_controller.take_action">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod3_controller.</span></span><span class="sig-name descname"><span class="pre">take_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod3_controller.html#take_action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod3_controller.take_action" title="Permalink to this definition"></a></dt>
+<dd><p>The function decides to whether keep the user velocity to the /cmd_vel or not. 5 region of the /scan readings are checked and if user wants to drive in the direction of a close obstacle, the velocity in that direction is set to zero. It is then sent to /cmd_vel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>regions</strong> (<em>dictionary</em>) – The parsed /scan readings to 5 regions. Every key has minimum of each region’s closest obstacle distance as value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="scripts.mod3_controller.vel_">
+<span class="sig-prename descclassname"><span class="pre">scripts.mod3_controller.</span></span><span class="sig-name descname"><span class="pre">vel_</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">linear:</span>&#160;&#160;&#160; <span class="pre">x:</span> <span class="pre">0.0</span>&#160;&#160; <span class="pre">y:</span> <span class="pre">0.0</span>&#160;&#160; <span class="pre">z:</span> <span class="pre">0.0</span> <span class="pre">angular:</span>&#160;&#160;&#160; <span class="pre">x:</span> <span class="pre">0.0</span>&#160;&#160; <span class="pre">y:</span> <span class="pre">0.0</span>&#160;&#160; <span class="pre">z:</span> <span class="pre">0.0</span></em><a class="headerlink" href="#scripts.mod3_controller.vel_" title="Permalink to this definition"></a></dt>
+<dd><p>Global Twist variable for robot velocity</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-scripts.mod3_teleop_twist_keyboard">
+<span id="mod3-teleop-twist-keyboard-module"></span><h1>mod3_teleop_twist_keyboard Module<a class="headerlink" href="#module-scripts.mod3_teleop_twist_keyboard" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-mod3_teleop_twist_keyboard"></span><p>The script is the standard teleop_twist_keyboard. The only difference is that it publishes to the /cmd_vel_raw topic instead of /cmd_vel.</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><p>None</p>
+</dd>
+<dt>Publishes to:</dt><dd><p>/cmd_vel_raw</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.mod3_teleop_twist_keyboard.PublishThread">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.mod3_teleop_twist_keyboard.</span></span><span class="sig-name descname"><span class="pre">PublishThread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod3_teleop_twist_keyboard.html#PublishThread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod3_teleop_twist_keyboard.PublishThread" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="scripts.mod3_teleop_twist_keyboard.PublishThread.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mod3_teleop_twist_keyboard.html#PublishThread.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mod3_teleop_twist_keyboard.PublishThread.run" title="Permalink to this definition"></a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Ebru Baglan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
