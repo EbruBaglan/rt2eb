@@ -1,4 +1,21 @@
 #!/usr/bin/env python
+"""
+.. module:: mod3_teleop_twist_keyboard
+   :platform: Unix
+   :synopsis: Python script for user command of velocity for modality 3: assisted drive
+   
+.. moduleauthor:: Ebru Baglan baglanebru@gmail.com
+
+The script is the standard teleop_twist_keyboard. The only difference is that it publishes to the /cmd_vel_raw topic instead of /cmd_vel.
+
+Subscribes to:
+	None
+	
+Publishes to:
+	/cmd_vel_raw
+"""
+
+
 
 from __future__ import print_function
 
