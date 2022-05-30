@@ -1,22 +1,21 @@
 #! /usr/bin/env python
 
-## @package rt2eb
-# \file mod1_send_goal.py
-# \brief Additional Python script necessary for the controller of modality 1: autonomous drive.
-# \author Ebru Baglan
-# \version 0.1
-# \date 27/01/2022
-#
-# \details
-#
-# Subscribes to: <BR>
-#	(parameter server) des_pos_x, des_pos_y
-#
-# Publishes to: <BR>
-#	move_base/goal
-#
-# Description:
-#	The script is run upon mod1.py is initiated. Due to the problems faced, user interface and actual sending goal part of the mod1 are seperated like this. Upon receiving desired location to reach from parameter server, this node sends the coordinates to move_base/goal topic. 
+"""
+.. module:: mod1_send_goal
+   :platform: Unix
+   :synopsis: Additional Python module necessary for the controller of modality 1: auto drive
+   
+.. moduleauthor:: Ebru Baglan baglanebru@gmail.com
+
+The script is run upon mod1.py is initiated. Due to the problems faced, user interface and actual sending goal part of the mod1 are seperated like this. Upon receiving desired location to reach from parameter server, this node sends the coordinates to move_base/goal topic
+
+Subscribes to:
+	(parameter server) des_pos_x, des_pos_y
+	
+Publishes to:
+	move_base/goal
+"""
+
 import rospy
 from geometry_msgs.msg import Point
 from move_base_msgs.msg import MoveBaseActionGoal
@@ -30,13 +29,10 @@ move_msg = MoveBaseActionGoal()
 move_msg.goal.target_pose.header.frame_id = 'map'
 move_msg.goal.target_pose.pose.orientation.w = 1
 
-
-##
-# \brief The main function receives the desired (x,y) coordinate and sends it to move_base/goal topic. 
-# \param desired_position_.x is the x-coordinate of the goal.
-# \param desired_position_.y is the y-coordinate of the goal.
-# This function is the node that sends the desired coordinate to the move_base/goal topic. It does not prints out anything, only publishes to the mentioned topic. frame_id and orientation.w are important parameters which should not be forgotten to set.
 def main():
+    """
+    This function is the node that sends the desired coordinate to the move_base/goal topic. It does not prints out anything, only publishes to the mentioned topic. frame_id and orientation.w are important parameters which should not be forgotten to set.
+    """
     global pub, active_, desired_position_, move_msg
     i = 0
 

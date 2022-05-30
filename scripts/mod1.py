@@ -3,7 +3,7 @@
 """
 .. module:: mod1
    :platform: Unix
-   :synopsis: Python module fpor the controller of modality 1: auto drive
+   :synopsis: Python module for the controller of modality 1: auto drive
    
 .. moduleauthor:: Ebru Baglan baglanebru@gmail.com
 
