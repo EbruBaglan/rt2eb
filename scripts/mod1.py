@@ -29,20 +29,21 @@ position_ = Point()
 Global position variable
 """
 
-##
-# \brief This function assigns position of the robot to a global variable. 
-# \param msg is the message containing the position of the robot obtained from /odom.
-# \param position_ is the global Point variable.
-# This is a callback function to assign global position variable the position of the robot which is obtained from /odom topic.
 def clbck(msg):
+"""
+This function assigns the position of the robot to a global variable.
+
+Args:
+	msg(Pose): the message received from /odom, robot position
+"""
 	global position_
 	position_ = msg.pose.pose.position
 
-##
-# \brief This function launches the another node to send goal to ROS topic. 
-# \param node is the mod1_send_goal.py node of the package.
-# This function is to avoid a difficulty which had been faced last semester. This roundabout works by calling another node to send goal to the ROS topic.
+
 def start_task():
+    """
+    This function launches the another node to send user-entered goal to the ROS topic. 
+    """
     rospy.loginfo("starting...")
 
     package = 'rt2eb'
@@ -55,12 +56,10 @@ def start_task():
     script = launch.launch(node)
     print(script.is_alive())
 
-##
-# \brief The main function receives the (x,y) coordinate that user wants to reach, and initiates another node to reach to the target unless timeout. 
-# \param x,y are the desired coordinates to reach.
-# \param timeout_ is to take care of timeout.
-# This function is the user interface for getting the desired coordinates, and showing user about the progress of reach. It accounts for timeout and in case of timeout_ notifies user, and asks for another goal to reach.
 def main():
+    """
+    The main function receives the (x,y) coordinate that user wants to reach, and initiates another node to reach to the target unless timeout.
+    """
     threshold = 0.6
     rospy.init_node('mod1')
 
