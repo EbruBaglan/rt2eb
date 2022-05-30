@@ -1,24 +1,20 @@
 #! /usr/bin/env python
 
-## @package rt2eb
-# \file mod1.py
-# \brief Python script for the controller of modality 1: autonomous drive.
-# \author Ebru Baglan
-# \version 0.1
-# \date 27/01/2022
-#
-# \details
-#
-# Subscribes to: <BR>
-#	/odom
-#
-# Publishes to: <BR>
-#	(parameter server) des_pos_x, des_pos_y
-#
-# Description:
-#	The script is run after modality 1 is called by the user.
-#	An interesting approach in this node is the usage of parameter server
-#	rather than a ROS topic to transmit the information of the new goal.
+"""
+.. module:: mod1
+   :platform: Unix
+   :synopsis: Python module fpor the controller of modality 1: auto drive
+   
+.. moduleauthor:: Ebru Baglan baglanebru@gmail.com
+
+This node takes user input for the desired coordinates, communicates the results and account for the timeout. Due to a problem faced during the implementation of the code, the goal entered by user cannot be sent directly to the MoveAction, but rather is sent to another node to do the job. This trasmission to another node is made through the parameter server. It should be noted that, however, parameter server should be used for exhanging static data only. 
+
+Subscribes to:
+	/odom
+	
+Publishes to:
+	(parameter server) des_pos_x, des_pos_y
+"""
 
 import rospy
 import roslaunch
@@ -28,10 +24,10 @@ import os
 from actionlib_msgs.msg import GoalStatusArray
 from datetime import datetime
 
-##
-# Global position variable
 position_ = Point()
-
+"""
+Global position variable
+"""
 
 ##
 # \brief This function assigns position of the robot to a global variable. 
