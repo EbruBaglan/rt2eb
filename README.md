@@ -106,6 +106,8 @@ In a mixture of solutions, a total of 38 run (30 proposed solution, 8 EbruB’s 
 **Null hypothesis:** EbruB’s solution is faster than the proposed solution in terms of the time spent to get the third silver token and leave it behind in standard map configuration.
 
 Standard deviation of the samples from the population is
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;SE=\frac{9.924}{\sqrt{8}}=3.5087" title="\Large SE=\frac{9.924}{\sqrt{8}}=3.5087" />
 SE=9.924/√8=3.5087
 
 Then **z** becomes
