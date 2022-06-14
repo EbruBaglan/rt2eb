@@ -91,24 +91,24 @@ In the statistical analysis part of the assignment, a comparison between the pro
 The average time spent to get the third silver token and leave it behind in standard map configuration is chosen to be the performance criteria.
 
 Z-test can be applied for this purpose as the following conditions are met.
-	Sample is randomly chosen from the population.
-	Mean and variance of the population distribution is known.
-	Sampling distribution approximately normal (as N=38>30)
+* Sample is randomly chosen from the population.
+* Mean and variance of the population distribution is known.
+* Sampling distribution approximately normal (as N=38>30)
 	
-Also, we know the standard deviation (σ) of the 38 samples, so Z-test seems more suitable than T-test.
+Also, we know the **standard deviation (σ)** of the 38 samples, so Z-test seems more suitable than T-test.
 
-For the statistical analysis, as a level of significance (the risk we are willing to take by rejecting the null hypothesis), 5% is deemed appropriate.
+For the statistical analysis, as a **level of significance** (the risk we are willing to take by rejecting the null hypothesis), 5% is deemed appropriate.
 
 The time spent to get the third silver token and leave it behind in standard map configuration.
 
-In a mixture of solutions, a total of 38 run (30 proposed solution, 8 EbruB’s solution) are executed on the standard map configuration which yielded σ=46.90  with μ=9.924.
+In a mixture of solutions, a total of 38 run (30 proposed solution, 8 EbruB’s solution) are executed on the standard map configuration which yielded **σ=46.90  with μ=9.924.**
 
 **Null hypothesis:** EbruB’s solution is faster than the proposed solution in terms of the time spent to get the third silver token and leave it behind in standard map configuration.
 
 Standard deviation of the samples from the population is
 SE=9.924/√8=3.5087
 
-Then z becomes
+Then **z** becomes
 z=(27.84-46.90)/3.5087=-5.43
 
 Checking Z table’s column with 0.05, as that is the level of significance chosen, the last entry is seen to be z=-3.4. The values are getting closer to 0 as the values getting further, suggesting that, the probability of observing a value below -5.43 is 0, and showing that EbruB’s solution is faster than the proposed solution in terms of the time spent to get the third silver token and leave it behind in standard map configuration.
