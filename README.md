@@ -115,6 +115,8 @@ z=(27.84-46.90)/3.5087=-5.43
 a^2+b^2=c^2
 ```
 
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+
 Checking Z table’s column with 0.05, as that is the level of significance chosen, the last entry is seen to be z=-3.4. The values are getting closer to 0 as the values getting further, suggesting that, the probability of observing a value below -5.43 is 0, and showing that EbruB’s solution is faster than the proposed solution in terms of the time spent to get the third silver token and leave it behind in standard map configuration.
 
 The dataset can be found in the Appendix.
