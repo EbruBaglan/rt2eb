@@ -109,6 +109,8 @@ Standard deviation of the samples from the population is
 SE=9.924/√8=3.5087
 
 Then **z** becomes
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;z=\frac{27.84-46.90}{3.5087}" title="\Large z=\frac{27.84-46.90}{3.5087}" />
 z=(27.84-46.90)/3.5087=-5.43
 
 ```math
