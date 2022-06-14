@@ -85,6 +85,7 @@ Indeed, after installing that, the problem is solved.
 
 Research Track 2 - Assignment 1 - Part2 Statistics
 ==================================================
+
 In the statistical analysis part of the assignment, a comparison between the proposed solution by professor and the solution of the student is performed. 
 The average time spent to get the third silver token and leave it behind in standard map configuration is chosen to be the performance criteria.
 Z-test can be applied for this purpose as the following conditions are met.
