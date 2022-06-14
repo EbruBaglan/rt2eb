@@ -101,7 +101,7 @@ For the statistical analysis, as a **level of significance** (the risk we are wi
 
 The time spent to get the third silver token and leave it behind in standard map configuration.
 
-In a mixture of solutions, a total of 38 run (30 proposed solution, 8 EbruB’s solution) are executed on the standard map configuration which yielded **σ=46.90  with μ=9.924.**
+In a mixture of solutions, a total of 38 run (30 proposed solution, 8 EbruB’s solution) are executed on the standard map configuration which yielded **σ=46.90  with μ=9.924.** (Check Appendix)
 
 **Null hypothesis:** EbruB’s solution is faster than the proposed solution in terms of the time spent to get the third silver token and leave it behind in standard map configuration.
 
