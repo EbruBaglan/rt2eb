@@ -135,3 +135,11 @@ The dataset is made of 38 samples with 30 run executed with proposed solution, l
 |     Sample   8     |     51.08       |     Sample   18    |     50.56       |     Sample   28    |     54.22       |     Sample   38    |     28.98       |
 |     Sample   9     |     50.93       |     Sample   19    |     51.39       |     Sample   29    |     51.3        |                    |                 |
 |     Sample   10    |     51.54       |     Sample   20    |     52.72       |     Sample   30    |     52.48       |                    |                 |
+
+
+The statistics of the dataset are as follows.
+
+|                             |     Population    |     EbruB       |
+|-----------------------------|-------------------|-----------------|
+|     Average                 |     46.90132      |     27.84125    |
+|     Standard   Deviation    |     9.924608      |     1.027052    |
