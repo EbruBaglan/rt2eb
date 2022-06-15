@@ -11,11 +11,11 @@ The single assignment of the Research Track 2, requires students to
 
 1 Documentation
 ----------------------
-The result for this part can be found in docs/index.html. Since the repository is private, Professor's suggestion for GitHub could not be realized.
+The result for this part can be found in **docs/index.html**. Since the repository is private, Professor's suggestion for GitHub could not be realized.
 
 2 Jupyter Notebook
 -------------------
-Previously implemented solution for **Research Track 1 - Assignment 3** is reimplemented to give user a Jupyter Notebook interface. Interactive elements are presented for the user to choose among 3 different modalities of the robot's movement. The interface is able to 
+Previously implemented solution for Research Track 1 - Assignment 3 is reimplemented to give user a Jupyter Notebook interface. Interactive elements are presented for the user to choose among 3 different modalities of the robot's movement. The interface is able to 
 
 1) Switch to the different modalities, and manage them
 2) Plot the robot position in 3D, the laser scanner data and show the number of reached/not-reached targets when returned to the main manu.
@@ -24,7 +24,7 @@ The user is required to initiate Gazebo and Rviz by typing
 ```bash
 $ roslaunch rt2eb ere.launch
 ```
-Then the Jupyter notebook with 2 cells can be run to control the robot and visualize it.
+Then the Jupyter notebook named **'latest.ipynb'** with 2 cells can be run to control the robot and visualize it.
 
 Improvements can be summed as:
 1) If mod2 is chosen after mod3, it is not possible to control the robot.
