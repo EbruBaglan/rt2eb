@@ -11,7 +11,7 @@ The single assignment of the Research Track 2, requires students to
 
 1 Documentation
 ----------------------
-The result for this part can be found in **docs/index.html**. Since the repository is private, Professor's suggestion for GitHub could not be realized.
+The result for this part can be found in **_build/html/index.html**. Since the repository is private, Professor's suggestion for GitHub could not be realized.
 
 2 Jupyter Notebook
 -------------------
