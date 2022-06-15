@@ -1,10 +1,24 @@
-Research Track 2 - Assignment 1 - Solution
+Research Track 2 - Continuous Evaluation - Solutions
 ================================
 
-In this assignment of the Research Track 2, previously implemented solution for Assignment 3 of Research Trach 1 is reimplemented to give user a Jupyter Notebook interface. Interactive elements like buttons, boxes are presented for the user to choose among 3 different modalities of the robot's movement. The interface should be able to get the user request for modality, get additional input from user depending on the modality of choice and let the robot execute one of the following behaviors:
-1) autonomously reach a x,y coordinate inserted by the user
-2) let the user drive the robot with the keyboard
-3) let the user drive the robot assisting them to avoid collisions.
+The single assignment of the Research Track 2, requires students to
+
+1) Properly comment (sphinx and/or doxygen) the 3rd RT1 - assignment
+2) Create a jupyter notebook to interact with the simulation of the 3rd assignment able to:
+	- Switch to the different modalities, and manage them
+	- Plot the robot position, the laser scanner data and reached / not-reached targets
+3) Perform a statistical analysis on the first assignment, considering two different implementations (a proposed one, and student's)
+
+The first one can be found under docs/.html
+
+
+previously implemented solution for **Research Track 1 - Assignment 3** is reimplemented to give user a Jupyter Notebook interface. Interactive elements are presented for the user to choose among 3 different modalities of the robot's movement. The interface should be able to 
+
+
+
+1) Switch to the different modalities, and manage them
+2) Plot the robot position, the laser scanner data and reached / not-reached targets
+
 
 After the initialization of the robot, the output of the laser readings are shown to user through Jupyter Notebook.
 
